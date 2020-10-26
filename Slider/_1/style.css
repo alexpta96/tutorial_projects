@@ -1,0 +1,155 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+    --primary-color: #f6830f;
+    --second-color: #0e918c;
+    --bg-color: #d2d3c9;
+}
+.container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+.container::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+    z-index: 1;
+}
+.container .slider-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.container .slider-container .bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+.container .slider-container .bg img {
+    position: absolute;
+    width: 120%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+    transition: 0.3s ease opacity;
+}
+.container .slider-container .bg img.show {
+    opacity: 1;
+}
+.container .slider-container > div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+.container .slider-container > div > div {
+    width: 800px;
+    height: 450px;
+    overflow: hidden;
+    box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.60);
+    position: relative;
+}
+.container .slider-container .slider {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 100%);
+
+}
+.container .slider-container .slider .img {
+    position: relative;
+    overflow: hidden;
+}
+.container .slider-container .slider .img img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+}
+.container .slider-container .content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.container .slider-container .content::before {
+    content: '';
+    width: 100%;
+    height: 17%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+}
+.container .slider-container .content .btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4rem;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    opacity: 0.5;
+    cursor: pointer;
+    color: var(--primary-color);
+    transition: 0.3s ease all;
+}
+.container .slider-container .content .btn:hover {
+    opacity: 1;
+}
+.container .slider-container .content .btn.prev-btn {
+    left: 1rem;
+}
+.container .slider-container .content .btn.next-btn {
+    right: 1rem;
+}
+.container .slider-container .content ul {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1rem;
+    margin: 0;
+    padding: 0;
+}
+.container .slider-container .content ul li {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin: 0 4px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    opacity: 0.8;
+    cursor: pointer;
+    transition: 0.3s ease border;
+}
+.container .slider-container .content ul li.active {
+    background-color: var(--second-color);
+}
+.container .slider-container .content ul li:hover {
+    border: 2px solid var(--bg-color);
+}
